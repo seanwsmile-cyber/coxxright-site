@@ -1,23 +1,30 @@
-# COxxright Production — 官網 landing（可改 source）
+# COxxright Production
 
-屯門 24 小時鼓房／琴室／Band 房／錄音。呢個 repo 係官網 landing 嘅可編輯 source，由 [coxxright.com](https://coxxright.com) 嘅現有 landing 重建。
+屯門 24 小時鼓房／琴室／Band 房／錄音 landing。
+
+Grok 預覽同呢個 repo 會一齊跟。改完之後用 `coxxright-namecheap.zip` 上傳去 Namecheap（同之前做法一樣）。
 
 ## 邊度改
 
 | 想改 | 檔案 |
 |---|---|
 | 價錢、文案、FAQ、WhatsApp、會員 | [`src/data/content.ts`](src/data/content.ts) |
-| 版面、區塊、按鈕 | [`src/components/site.tsx`](src/components/site.tsx) |
-| 顏色、字體、按鈕樣式 | [`src/styles.css`](src/styles.css) |
-| Logo／相片／影片 | [`public/`](public/) |
+| 版面 | [`src/components/site.tsx`](src/components/site.tsx) |
+| 顏色／字 | [`src/styles.css`](src/styles.css) |
+| 相片／logo | [`public/`](public/) |
 
-## 一齊改
+## 上 coxxright.com（Namecheap）
 
-1. **GitHub**：Invite collaborator → 開 branch → PR。
-2. **Grok App**：喺 Grok 入面 Remix 呢個 app，就可以喺預覽度一齊改。
+1. 下載 [`coxxright-namecheap.zip`](./coxxright-namecheap.zip)
+2. Namecheap File Manager 開 `public_html`
+3. 解壓／上傳 zip 入面全部檔（`index.html`、`assets/`、`media/`、logo、favicon、`.htaccess`）
+4. 覆蓋舊檔就得
 
-## 聯絡（live）
+唔使裝 Node。zip 已經係 build 好嘅 static 網站。
 
-- WhatsApp：51914022
-- Instagram：[@coxxright](https://www.instagram.com/coxxright)
-- 地址：屯門建泰街 6 號恒威工業中心 A2 座
+## 本機睇（optional）
+
+```bash
+npm install
+npm run dev
+```
