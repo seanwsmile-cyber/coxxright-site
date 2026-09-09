@@ -1,0 +1,268 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Noto Sans TC", "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", "Noto Serif TC", serif;
+  --font-ui: "Instrument Sans", "Noto Sans TC", ui-sans-serif, system-ui, sans-serif;
+  --color-sand: #f4eee4;
+  --color-cream: #f7f1e8;
+  --color-paper: #fbf6ee;
+  --color-dusk: #efe6d6;
+  --color-ink: #2f2923;
+  --color-ink-soft: #5c534a;
+  --color-mute: #8a7e72;
+  --color-ochre-deep: #8c6a38;
+  --color-line: #2f29231f;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    background: var(--color-sand);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+.grain {
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.09;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.9'/%3E%3C/svg%3E");
+  position: fixed;
+  inset: 0;
+}
+
+.hero-still {
+  display: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-clip {
+    display: none;
+  }
+  .hero-still {
+    display: block;
+  }
+}
+
+.btn-primary,
+.btn-ghost,
+.btn-chip {
+  -webkit-tap-highlight-color: transparent;
+}
+.btn-primary {
+  background: linear-gradient(180deg, #fffaf229, transparent 45%), var(--color-ink);
+  color: var(--color-cream);
+  font-family: var(--font-ui);
+  letter-spacing: 0.01em;
+  border: 1px solid #2f292333;
+  border-radius: 999px;
+  justify-content: center;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.68rem 1.3rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition:
+    transform 0.16s,
+    box-shadow 0.16s,
+    filter 0.16s;
+  display: inline-flex;
+  box-shadow:
+    inset 0 1px #ffffff38,
+    0 10px 20px -12px #2f292399;
+}
+.btn-primary:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+  box-shadow:
+    inset 0 1px #ffffff47,
+    0 14px 24px -12px #2f29238c;
+}
+.btn-primary:active {
+  filter: brightness(0.98);
+  transform: translateY(0);
+}
+.btn-ghost {
+  background: linear-gradient(180deg, #fffdf8, var(--color-paper));
+  color: var(--color-ink);
+  font-family: var(--font-ui);
+  border: 1px solid #2f292329;
+  border-radius: 999px;
+  justify-content: center;
+  align-items: center;
+  padding: 0.62rem 1.15rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition:
+    transform 0.16s,
+    border-color 0.16s,
+    box-shadow 0.16s;
+  display: inline-flex;
+  box-shadow:
+    inset 0 1px #fff,
+    0 6px 14px -12px #2f292359;
+}
+.btn-ghost:hover {
+  border-color: #8c6a3880;
+  transform: translateY(-1px);
+}
+.btn-chip {
+  background: linear-gradient(180deg, #fffdf8 0%, var(--color-paper) 100%);
+  color: inherit;
+  border: 1px solid #2f29231f;
+  border-radius: 1.1rem;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.15rem;
+  text-decoration: none;
+  transition:
+    transform 0.16s,
+    border-color 0.16s,
+    box-shadow 0.16s;
+  display: flex;
+  box-shadow:
+    inset 0 1px #fff,
+    0 8px 18px -14px #2f292366;
+}
+.btn-chip:hover {
+  border-color: #8c6a3873;
+  transform: translateY(-2px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn-primary,
+  .btn-ghost,
+  .btn-chip {
+    transition: none;
+    transform: none;
+  }
+}
+
+.works-feed {
+  border-top: 1px solid var(--color-line);
+  background: var(--color-cream);
+  color: var(--color-ink);
+}
+.works-row {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.15rem;
+  display: grid;
+}
+.ig-card {
+  border: 1px solid var(--color-line);
+  background: var(--color-paper);
+  height: 100%;
+  color: inherit;
+  border-radius: 1.15rem;
+  flex-direction: column;
+  text-decoration: none;
+  transition:
+    transform 0.16s,
+    box-shadow 0.16s,
+    border-color 0.16s;
+  display: flex;
+  overflow: hidden;
+  box-shadow:
+    inset 0 1px #fff,
+    0 10px 22px -16px #2f292359;
+}
+.ig-card:hover {
+  border-color: #8c6a3866;
+  transform: translateY(-2px);
+}
+.ig-media {
+  position: relative;
+}
+.ig-photo {
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  background: var(--color-dusk);
+  width: 100%;
+  display: block;
+}
+.ig-tag {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: calc(100% - 1.5rem);
+  color: var(--color-ochre-deep);
+  font-family: var(--font-ui);
+  letter-spacing: 0.02em;
+  background: #fbf6eef0;
+  border-radius: 999px;
+  padding: 0.28rem 0.7rem;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  position: absolute;
+  bottom: 0.75rem;
+  left: 0.75rem;
+  overflow: hidden;
+}
+.ig-body {
+  background: var(--color-paper);
+  flex-direction: column;
+  flex: 1;
+  gap: 0.4rem;
+  padding: 1.05rem 1.1rem 1.1rem;
+  display: flex;
+}
+.ig-title {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+  color: var(--color-ink);
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+.ig-services {
+  font-family: var(--font-ui);
+  color: var(--color-mute);
+  margin: 0;
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+.ig-blurb {
+  color: var(--color-ink-soft);
+  margin: 0.15rem 0 0;
+  font-size: 0.875rem;
+  line-height: 1.55;
+}
+.ig-time {
+  color: var(--color-mute);
+  font-family: var(--font-ui);
+  margin-top: auto;
+  padding-top: 0.85rem;
+  font-size: 0.6875rem;
+}
+@media (width <= 767px) {
+  .works-row {
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.5rem;
+    gap: 0.85rem;
+    margin-inline: -1.25rem;
+    padding-inline: 1.25rem;
+    display: flex;
+    overflow-x: auto;
+  }
+  .ig-card {
+    scroll-snap-align: start;
+    flex: 0 0 min(78vw, 300px);
+  }
+}
